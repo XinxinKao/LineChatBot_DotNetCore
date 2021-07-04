@@ -1,4 +1,5 @@
 using System;
+using LineChatBot_DotNetCore.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,6 +22,10 @@ namespace LineChatBot_DotNetCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddOptions();
+
+            services.Configure<LineSetting>(Configuration.GetSection("LineSetting"));
 
             // Register the Swagger Generator service.
             // This service is responsible for genrating Swagger Documents.
