@@ -1,4 +1,3 @@
-using System;
 using LineChatBot_DotNetCore.Models;
 using LineChatBot_DotNetCore.Proxy;
 using LineChatBot_DotNetCore.Services;
@@ -7,7 +6,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 
