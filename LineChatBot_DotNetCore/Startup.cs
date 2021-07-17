@@ -1,5 +1,6 @@
 using System;
 using LineChatBot_DotNetCore.Models;
+using LineChatBot_DotNetCore.Proxy;
 using LineChatBot_DotNetCore.Services;
 using LineChatBot_DotNetCore.Services.Interface;
 using Microsoft.AspNetCore.Builder;
@@ -32,6 +33,7 @@ namespace LineChatBot_DotNetCore
 
             services.AddTransient<ILineService, LineService>();
 
+            services.AddHttpClient<ILineProxy, LineProxy>();
 
             // Register the Swagger Generator service.
             // This service is responsible for genrating Swagger Documents.
