@@ -1,7 +1,6 @@
 ﻿using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
-using System.Threading.Tasks;
 using LineChatBot_DotNetCore.Models;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
@@ -28,12 +27,16 @@ namespace LineChatBot_DotNetCore.Proxy
                 Messages = new[] { new LineMessage { Type = "text", Text = message } }
             };
 
-
-            var requestContent = JsonConvert.SerializeObject(request);
-            var stringContent = new StringContent(requestContent, Encoding.UTF8, "application/json");
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _lineSetting.Value.AccessToken);
-            _httpClient.PostAsync(LineReplyUrl, stringContent);
+            PostReplyMessageApi(request);
         }
 
+        private void PostReplyMessageApi(LineReplyMessage request)
+        {
+            var requestContent = JsonConvert.SerializeObject(request);
+            var stringContent = new StringContent(requestContent, Encoding.UTF8, "application/json");
+            _httpClient.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", _lineSetting.Value.AccessToken);
+            _httpClient.PostAsync(LineReplyUrl, stringContent);
+        }
     }
 }
