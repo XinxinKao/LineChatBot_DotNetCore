@@ -12,6 +12,11 @@ namespace LineChatBot_DotNetCore.Models
 
         [JsonProperty("text")]
         public string Text { get; set; }
+
+        public override string ToString()
+        {
+            return $"{nameof(Id)}: {Id}, {nameof(Type)}: {Type}, {nameof(Text)}: {Text}";
+        }
     }
 
     public enum LineMessageType

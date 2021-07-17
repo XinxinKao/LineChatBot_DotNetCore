@@ -10,5 +10,10 @@ namespace LineChatBot_DotNetCore.Models
 
         [JsonProperty("events")]
         public List<Event> Events { get; set; }
+
+        public override string ToString()
+        {
+            return $"{nameof(Destination)}: {Destination}, {nameof(Events)}: {Events}";
+        }
     }
 }

@@ -9,5 +9,10 @@ namespace LineChatBot_DotNetCore.Models
 
         [JsonProperty("type")]
         public string Type { get; set; }
+
+        public override string ToString()
+        {
+            return $"{nameof(UserId)}: {UserId}, {nameof(Type)}: {Type}";
+        }
     }
 }

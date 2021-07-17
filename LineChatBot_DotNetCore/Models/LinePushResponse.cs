@@ -10,5 +10,10 @@ namespace LineChatBot_DotNetCore.Models
         
         [JsonProperty("messages")]
         public object[] Messages { get; set; }
+
+        public override string ToString()
+        {
+            return $"{nameof(To)}: {To}, {nameof(Messages)}: {Messages}";
+        }
     }
 }

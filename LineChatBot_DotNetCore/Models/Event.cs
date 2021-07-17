@@ -22,5 +22,10 @@ namespace LineChatBot_DotNetCore.Models
 
         [JsonProperty("message")]
         public LineMessage Message { get; set; }
+
+        public override string ToString()
+        {
+            return $"{nameof(ReplyToken)}: {ReplyToken}, {nameof(Type)}: {Type}, {nameof(Mode)}: {Mode}, {nameof(Timestamp)}: {Timestamp}, {nameof(Source)}: {Source}, {nameof(Message)}: {Message}";
+        }
     }
 }
