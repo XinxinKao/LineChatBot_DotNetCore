@@ -1,19 +1,28 @@
-﻿using isRock.LineBot;
+﻿using System.Threading.Tasks;
+using isRock.LineBot;
 using LineChatBot_DotNetCore.Attributes;
+using LineChatBot_DotNetCore.Models;
+using LineChatBot_DotNetCore.Services.Interface;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LineChatBot_DotNetCore.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LineController : LineWebHookControllerBase
+    public class LineController : ControllerBase//LineWebHookControllerBase
     {
-        [HttpPost]
-        [TypeFilter(typeof(LineVerifySignatureFilter))]
-        [Route("LineAccount")]
-        public ActionResult Post()
+        private readonly ILineService _lineService;
+
+        public LineController(ILineService lineService)
         {
-            ChannelAccessToken = "";
+            _lineService = lineService;
+        }
+
+        [TypeFilter(typeof(LineVerifySignatureFilter))]
+        [HttpPost]
+        public async Task<ActionResult> Post([FromBody] WebhookEvent data)
+        {
+            _lineService.Chat(data);
 
             return Ok();
         }
