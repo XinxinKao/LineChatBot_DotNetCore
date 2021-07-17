@@ -4,7 +4,7 @@ namespace LineChatBot_DotNetCore.Proxy
 {
     public interface ILineProxy
     {
-        void Reply(string message, string replyToken);
+        void Reply(string replyToken, LineMessage message);
         void PushMessage(string userId, LineMessage message);
     }
 }

@@ -21,14 +21,14 @@ namespace LineChatBot_DotNetCore.Proxy
             _lineSetting = lineSetting;
         }
 
-        public void Reply(string message, string replyToken)
+        public void Reply(string replyToken, LineMessage message)
         {
             var request = new LineReplyMessage
             {
                 ReplyToken = replyToken,
-                Messages = new[]
+                Messages = new object[]
                 {
-                    new LineMessage { Type = "text", Text = message }
+                    message
                 }
             };
 

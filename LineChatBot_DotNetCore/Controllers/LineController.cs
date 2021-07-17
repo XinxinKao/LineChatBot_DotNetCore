@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using isRock.LineBot;
 using LineChatBot_DotNetCore.Attributes;
 using LineChatBot_DotNetCore.Models;
 using LineChatBot_DotNetCore.Services.Interface;
@@ -9,7 +8,7 @@ namespace LineChatBot_DotNetCore.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LineController : ControllerBase//LineWebHookControllerBase
+    public class LineController : ControllerBase
     {
         private readonly ILineService _lineService;
 
