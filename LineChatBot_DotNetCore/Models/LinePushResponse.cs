@@ -3,11 +3,11 @@ using Newtonsoft.Json;
 
 namespace LineChatBot_DotNetCore.Models
 {
-    public class LineReplyMessage : ILinePushResponse
+    public class LinePushResponse : ILinePushResponse
     {
-        [JsonProperty("replyToken")]
-        public string ReplyToken { get; set; }
-
+        [JsonProperty("to")]
+        public string To { get; set; }
+        
         [JsonProperty("messages")]
         public object[] Messages { get; set; }
     }
