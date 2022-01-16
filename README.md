@@ -16,3 +16,6 @@
     "AccessToken": "Your_Line_Access_Token"
 }
 ```
+
+### Demo
+![image](https://github.com/XinxinKao/LineChatBot_DotNetCore/blob/master/LineChatBot_DotNetCore/Images/LineChatBotDemo.jpg)
